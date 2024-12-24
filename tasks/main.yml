@@ -1,0 +1,23 @@
+---
+# tasks file for docker
+- name: Install required system packages for Docker installation
+  ansible.builtin.apt:
+    pkg: "{{ docker_prerequired_packages }}"
+    state: present
+    update_cache: true
+
+- name: Add Docker GPG apt key
+  ansible.builtin.apt_key:
+    url: "{{ docker_gpg_apt_key }}"
+    state: present
+
+- name: Add Docker apt repository
+  ansible.builtin.apt_repository:
+    repo: "{{ docker_apt_repository }}"
+    state: present
+
+- name: Install Docker packages
+  ansible.builtin.apt:
+    pkg: "{{ docker_installing_packages }}"
+    state: present
+    update_cache: true

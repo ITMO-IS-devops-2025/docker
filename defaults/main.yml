@@ -1,0 +1,12 @@
+---
+# defaults file for docker
+docker_prerequired_packages:
+  - ca-certificates
+  - curl
+
+docker_gpg_apt_key: https://download.docker.com/linux/ubuntu/gpg
+
+docker_apt_repository: deb https://download.docker.com/linux/ubuntu focal stable
+
+docker_installing_packages:
+  - docker-ce
